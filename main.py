@@ -1,7 +1,15 @@
 from dfa import IdentifierRegexTree, build_dfa_from_syntax_tree
 from lexer import Lexer
 from minimizador_dfa import minimize_dfa
+from demostracion import simulate_dfa
 
+def number_symbol_map(char):
+    if char.isdigit():
+        return "DIGIT"
+    elif char == ".":
+        return "DOT"
+    else:
+        return None
 
 
 def main():
@@ -31,5 +39,12 @@ def main():
     tree.report()
     dfa = build_dfa_from_syntax_tree(tree)
     minimize_dfa(dfa)
+
+
+    #lexema válido
+    simulate_dfa(dfa, "12.34", number_symbol_map)
+
+    #inválido
+    simulate_dfa(dfa, "12.", number_symbol_map)
 main()
 

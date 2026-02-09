@@ -1,5 +1,5 @@
 def minimize_dfa(dfa):
-    print("\n================ DFA MINIMIZATION =================")
+    print("\n------------------ DFA MINIMIZATION -------------------")
 
     P = [
         set(dfa["accepting"]),

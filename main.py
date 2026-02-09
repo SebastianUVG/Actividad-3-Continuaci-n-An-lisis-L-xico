@@ -1,3 +1,5 @@
+# La creación de los autómatas finitos deterministas se realiza en el archivo dfa.py, específicamente en la función build_dfa_from_syntax_tree, donde se implementa el algoritmo de construcción. Pense que era en codigo todo y no a mano. 
+
 from dfa import IdentifierRegexTree, build_dfa_from_syntax_tree
 from lexer import Lexer
 from minimizador_dfa import minimize_dfa

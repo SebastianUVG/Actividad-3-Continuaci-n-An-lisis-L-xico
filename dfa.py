@@ -129,7 +129,7 @@ class IdentifierRegexTree:
 
 
 def build_dfa_from_syntax_tree(tree: IdentifierRegexTree):
-    print("\n================ DFA CONSTRUCTION =================")
+    print("\n-------------- DFA CONSTRUCTION -------------------")
 
     alphabet = set(tree.leaves.values())
     alphabet.discard("#")

@@ -1,6 +1,8 @@
-# main.py
-
+from dfa import IdentifierRegexTree, build_dfa_from_syntax_tree
 from lexer import Lexer
+from minimizador_dfa import minimize_dfa
+
+
 
 def main():
     with open("PotionBrever.java", "r", encoding="utf-8") as file:
@@ -15,8 +17,19 @@ def main():
 
     print(lexer.symbol_table)
 
-    # 👉 RESPUESTA AL EJERCICIO
     lexer.report_lexeme_patterns()
 
+    
+
+    print("\n DFA CONSTRUCTION (Number) ")
+    tree = IdentifierRegexTree()
+    root = tree.build_tree()
+
+    tree.compute_nullable_first_last(root)
+    tree.compute_followpos(root)
+    
+    tree.report()
+    dfa = build_dfa_from_syntax_tree(tree)
+    minimize_dfa(dfa)
 main()
 
